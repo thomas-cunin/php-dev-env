@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?= $id ?></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.css" />
+    <link rel="stylesheet" href="https://bulma.io/vendor/fontawesome-free-5.15.2-web/css/all.min.css">
+    
+</head>
+
+<body>
+
+    <div class="container mt-2">
+        <a href="./index.php"><< Back to employees list</a>
+        <div class="columns is-multiline">
+            <div class="column is-6">
+                <h3 class="title is-3">Employee number : <?= $id ?></h3>
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="https://www.meme-arsenal.com/memes/d165dc6879b4c700e5dee9994f29d246.jpg" alt="Photo of employee">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                    <img src="./img/haroldMini.png" alt="Placeholder image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4"><?= $employee['lastName'] . ' ' . $employee['firstName'] ?></p>
+                                <p class="subtitle is-6"><?= $employee['jobTitle'] ?></p>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <strong>Contact</strong> : <?= $employee['email'] ?><br>
+                            <strong>Hierarchic boss</strong> : <a href=<?="./show_employee.php?id=". $hierarchicUp['employeeNumber'] ?> ><?= $hierarchicUp['lastName'] . ' ' . $hierarchicUp['firstName'] . ' ( ' . $hierarchicUp['jobTitle']. ' )' ?></a>
+                        </div>
+                    </div>
+                        <footer class="card-footer">
+                            <a href="<?= './edit_employee.php?id=' . $id ?>" class="card-footer-item">Edit</a>
+                            <a href="<?= './delete_employee.php?id=' . $id ?>" class="card-footer-item">Delete</a>
+                        </footer>
+                </div>
+            </div>
+            <div class="column is-6">
+                <h3 class="title is-3">Office code : <?= $employee['officeCode'] ?></h3>
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="https://www.ekopolis.fr/sites/default/files/styles/header_article/public/2018-05/images/A_Opalia_Fac%CC%A7ade_principale_Avenue_Porte_IVRY_%C2%A9%20_Paul%20_Koslowski_1024_96dpi.jpeg?itok=9aKxdUhQ" alt="Photo of employee">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4"><?= 'Office of ' . $office['city'] ?></p>
+                                <p class="subtitle is-6"><?= $office['postalCode']. ', ' . $office['city'] . ' in ' .  $office['country'] ?></p>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <strong>Contact</strong> : <?= $office['phone'] ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

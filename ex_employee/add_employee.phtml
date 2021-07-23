@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.css" />
+    <link rel="stylesheet" href="https://bulma.io/vendor/fontawesome-free-5.15.2-web/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- <div class="column is-4"> -->
+            <h4 class="title is-4">Add new employee on the database</h4>
+            <form method="post" action="./add_employee.php">
+                <div class="field">
+                    <label class="label">First Name</label>
+                    <div class="control">
+                        <input class="input" type="text" value="" name="firstName">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Last Name</label>
+                    <div class="control">
+                        <input class="input" type="text" value="" name="lastName">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input class="input" type="email" value="" name="email">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Job title</label>
+                    <div class="control">
+                        <input class="input" type="text" value="" name="jobTitle">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Hierarchic boss</label>
+                    <div class="control">
+                        <div class="select">
+                            <select name="reportsTo">
+                                <option value="">Nobody</option>
+                                <?php foreach ($otherEmployees as $employeeOption) : ?>
+                                    <option value="<?= $employeeOption['employeeNumber'] ?>"> <?= '[' . $employeeOption['jobTitle'] . '] ' . $employeeOption['lastName'] . ' ' . $employeeOption['firstName'] ?> </option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Office</label>
+                    <div class="control">
+                        <ul>
+                            <?php foreach ($offices as $office) : ?>
+                                <li><label class="radio">
+                                        <input type="radio" name="officeCode" value="<?= $office['officeCode'] ?>"<?php if ($office['officeCode'] == 1){echo 'checked';} ?>>
+                                        <?= $office['city'] . ' - ' . $office['country'] ?>
+                                    </label></li>
+                            <?php endforeach ?>
+                    </div>
+                    </ul>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link">Submit</button>
+                    </div>
+                </div>
+            </form>
+        <!-- </div> -->
+    </div>
+</body>
+
+</html>

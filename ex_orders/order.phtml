@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./table.css">
+
+    <title>Commande n° <?= $order['orderNumber'] ?></title>
+</head>
+<body>
+<h2><a href="./index.php">Back to orders page...</a></h2>
+<table>
+    <thead>
+        <tr>
+            <th colspan="4">Order informations</th>
+        </tr>
+        <tr>
+            <td style="text-align: center"><strong>Order date</strong></td>
+            <td style="text-align: center"><strong>Order number</strong></td>
+            <td style="text-align: center"><strong>Order status</strong></td>
+            <td style="text-align: center"><strong>Customer name</strong></td>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td><?php echo $order['orderDate']?></td>
+            <td style=""><?php echo $order['orderNumber']?></td>
+            <td><?php echo $order['status']?></td>
+            <td style=""><?php echo $order['customerName']?></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

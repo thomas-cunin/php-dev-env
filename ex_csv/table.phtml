@@ -1,0 +1,23 @@
+<table>
+    <thead>
+        <tr>
+            <th colspan="<?php echo count($users[0]) ?>">Users list</th>
+        </tr>
+        <tr>
+            <?php foreach($userTemplate as $type) : ?>
+                <td style="text-align: center">
+                    <?= "$type" ?>
+                </td>
+            <?php endforeach ?>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($users as $user) : ?>
+        <tr>
+            <?php foreach ($user as $info) : ?>
+                <td><?= "$info"?></td>
+            <?php endforeach ?>
+        </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>
